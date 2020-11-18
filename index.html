@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- add Comments, use HTML5 -->
+    <form action="" onsubmit="return false;">
+        <fieldset>
+            <legend>Charts</legend>
+            <div class="inputs">
+                <input type="text">              
+                <input type="number">              
+                <input type="color">              
+            </div>
+            <div class="inputs">
+                <input type="text">              
+                <input type="number">              
+                <input type="color">   
+            </div>
+            <div class="inputs">
+                <input type="text">              
+                <input type="number">              
+                <input type="color">    
+            </div>
+            <div class="inputs">
+                <input type="text">              
+                <input type="number">              
+                <input type="color">    
+            </div>
+            <div class="c1">
+                <input type="checkbox" name="pieChart" id="pieChart">
+                <label for="pieChart">Pie Chart</label>
+                <input type="checkbox" name="doughnutChart" id="doughnutChart">
+                <label for="pieChart">Doughnut Chart</label>
+            </div>
+            
+            <div class="c1">
+                <input type="checkbox" name="lineChart" id="lineChart">
+                <label for="lineChart">Line Chart</label>
+                <input type="checkbox" name="barChart" id="barChart">
+                <label for="barChart">Bar Chart</label>
+            </div>
+            
+            <button>Draw</button>
+        </fieldset>
+    </form>
+    <div class="alert">
+        Please Fill all fields
+    </div>
+    <div class="canvasElements" id="canvasElements">
+         <!-- Pie Chart -->
+        <canvas id="mycanvas" width="400" height="400"></canvas>
+        <!-- Doghnout Chart -->
+        <canvas id="mycanvas2" width="400" height="400"></canvas>
+        <!-- Line Chart -->   
+        <svg  class="unique">
+            <g transform="translate(40,-90)">
+            <g class="x axis" transform="translate(0,450)">
+                    <g class="tick" transform="translate(25.5,0)" style="opacity: 1;">                   
+                    <circle cx="0" cy="0" r="2" stroke="black" stroke-width="1" fill="black" />
+                    <text dy=".71em" y="9" x="0" style="text-anchor: middle;">A</text>
+                </g>
+                    <g class="tick" transform="translate(75,0)" style="opacity: 1;">
+                    <circle cx="0" cy="0" r="2" stroke="black" stroke-width="1" fill="black" />
+                    <text dy=".71em" y="9" x="0" style="text-anchor: middle;">B</text>
+                </g>
+                    <g class="tick" transform="translate(125,0)" style="opacity: 1;">
+                    <circle cx="0" cy="0" r="2" stroke="black" stroke-width="1" fill="black" />
+                    <text dy=".71em" y="9" x="0" style="text-anchor: middle;">C</text>
+                </g>  
+                <g class="tick" transform="translate(175,0)" style="opacity: 1;">
+                    <circle cx="0" cy="0" r="2" stroke="black" stroke-width="1" fill="black" />
+                    <text dy=".71em" y="9" x="0" style="text-anchor: middle;">D</text>
+                </g>                            
+                <!-- <path class="domain" d="M0,6V0H900V6"></path> -->
+                <line x2='190' y2='0'></line>
+            </g>
+                <g class="y axis">
+                    <g class="tick" transform="translate(0,450)" style="opacity: 1;" >
+                    <circle cx="0" cy="0" r="2" stroke="black" stroke-width="1" fill="black" />
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">0%</text>
+                </g>
+                    <g class="tick" transform="translate(0,414.57250826641473)" style="opacity: 1;">
+                    <circle cx="0" cy="0" r="2" stroke="black" stroke-width="1" id="1" fill="black" />
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">10%</text>
+                </g>
+                    <g class="tick" transform="translate(0,379.14501653282946)" style="opacity: 1;">
+                        <circle cx="0" cy="0" r="2" stroke="black" stroke-width="1" fill="black" />
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">20%</text>
+                </g>
+                    <g class="tick" transform="translate(0,343.71752479924425)" style="opacity: 1;">
+                        <circle cx="0" cy="0" r="2" stroke="black" stroke-width="1" fill="black" />
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">30%</text>
+                </g>
+                    <g class="tick" transform="translate(0,308.290033065659)" style="opacity: 1;">
+                        <circle cx="0" cy="0" r="2" stroke="black" stroke-width="1" fill="black" />
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">40%</text>
+                </g>
+                    <g class="tick" transform="translate(0,272.86254133207365)" style="opacity: 1;">
+                        <circle cx="0" cy="0" r="2" stroke="black" stroke-width="1" fill="black" />
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">50%</text>
+                </g>
+                    <g class="tick" transform="translate(0,237.43504959848843)" style="opacity: 1;">
+                        <circle cx="0" cy="0" r="2" stroke="black" stroke-width="1" fill="black" />
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">60%</text>
+                </g>
+                    <g class="tick" transform="translate(0,202.0075578649031)" style="opacity: 1;">
+                        <circle cx="0" cy="0" r="2" stroke="black" stroke-width="1" fill="black" />
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">70%</text>
+                </g>
+                    <g class="tick" transform="translate(0,166.5800661313179)" style="opacity: 1;">
+                        <circle cx="0" cy="0" r="2" stroke="black" stroke-width="1" fill="black" />
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">80%</text>
+                </g>
+                    <g class="tick" transform="translate(0,131.15257439773262)" style="opacity: 1;">
+                        <circle cx="0" cy="0" r="2" stroke="black" stroke-width="1" fill="black" />
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">90%</text>
+                </g>
+                    <g class="tick" transform="translate(0,95.72508266414734)" style="opacity: 1;">
+                        <circle cx="0" cy="0" r="2" stroke="black" stroke-width="1" fill="black" />
+                    <text dy=".32em" x="-9" y="0" style="text-anchor:end;">100%</text>
+                </g>          
+                <line x2="0" y2="450" x1="0" y1="92" id="y-axis"></line>
+            </g>       
+            <polyline points="0,0 25.5,-35.8 75,-107.4 125,-250.6" style="fill: none;"
+            stroke="blue" transform="translate(0,450)"></polyline>
+            
+            </g>
+        </svg>
+        <!-- Bar Chart -->
+        <svg  class="unique1" id="uni1" height="600">
+            <g transform="translate(40,20)">
+            <g class="x axis" transform="translate(0,450)">
+                    <g class="tick" transform="translate(25.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line>
+                    <text dy=".71em" y="9" x="0" style="text-anchor: middle;">A</text>
+                </g>
+                    <g class="tick" transform="translate(75,0)" style="opacity: 1;"><line y2="6" x2="0"></line>
+                    <text dy=".71em" y="9" x="0" style="text-anchor: middle;">B</text>
+                </g>
+                    <g class="tick" transform="translate(125,0)" style="opacity: 1;"><line y2="6" x2="0"></line>
+                    <text dy=".71em" y="9" x="0" style="text-anchor: middle;">C</text>
+                </g> 
+                <g class="tick" transform="translate(175,0)" style="opacity: 1;"><line y2="6" x2="0"></line>
+                    <text dy=".71em" y="9" x="0" style="text-anchor: middle;">D</text>
+                </g>                             
+                <path class="domain" d="M0,6V0H900V6"></path>
+            </g>
+                <g class="y axis">
+                    <g class="tick" transform="translate(0,450)" style="opacity: 1;"><line x2="-6" y2="0"></line>
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">0%</text>
+                </g>
+                    <g class="tick" transform="translate(0,414.57250826641473)" style="opacity: 1;"><line x2="-6" y2="0"></line>
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">10%</text>
+                </g>
+                    <g class="tick" transform="translate(0,379.14501653282946)" style="opacity: 1;"><line x2="-6" y2="0"></line>
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">20%</text>
+                </g>
+                    <g class="tick" transform="translate(0,343.71752479924425)" style="opacity: 1;"><line x2="-6" y2="0"></line>
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">30%</text>
+                </g>
+                    <g class="tick" transform="translate(0,308.290033065659)" style="opacity: 1;"><line x2="-6" y2="0"></line>
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">40%</text>
+                </g>
+                    <g class="tick" transform="translate(0,272.86254133207365)" style="opacity: 1;"><line x2="-6" y2="0"></line>
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">50%</text>
+                </g>
+                    <g class="tick" transform="translate(0,237.43504959848843)" style="opacity: 1;"><line x2="-6" y2="0"></line>
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">60%</text>
+                </g>
+                    <g class="tick" transform="translate(0,202.0075578649031)" style="opacity: 1;"><line x2="-6" y2="0"></line>
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">70%</text>
+                </g>
+                    <g class="tick" transform="translate(0,166.5800661313179)" style="opacity: 1;"><line x2="-6" y2="0"></line>
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">80%</text>
+                </g>
+                    <g class="tick" transform="translate(0,131.15257439773262)" style="opacity: 1;"><line x2="-6" y2="0"></line>
+                    <text dy=".32em" x="-9" y="0" style="text-anchor: end;">90%</text>
+                </g>
+                    <g class="tick" transform="translate(0,95.72508266414734)" style="opacity: 1;"><line x2="-6" y2="0"></line>
+                    <text dy=".32em" x="-9" y="0" style="text-anchor:end;">100%</text>
+                </g>          
+                <path class="domain" d="M-6,0H0V450H-6"></path>
+            </g>       
+                <rect class="bar" x="10" width="31" y="160.66367501180912" height="289.3363249881909"></rect>
+                <rect class="bar" x="60" width="31" y="397.1421823334908" height="52.85781766650922"></rect>
+                <rect class="bar" x="110" width="31" y="351.4407179971658" height="98.55928200283421"></rect>               
+                <rect class="bar" x="160" width="31" y="299.3268776570619" height="150.6731223429381"></rect>           
+            </g>
+        </svg>
+    
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
